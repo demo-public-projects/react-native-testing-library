@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
+  Pressable,
 } from "react-native";
 
 export default function App() {
@@ -31,15 +32,23 @@ export default function App() {
         keyboardType="numeric"
         onChangeText={handleInputChange}
         value={inputValue}
-        maxLength={10} 
+        maxLength={10}
       />
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.button} onPress={increment}>
+        <Pressable
+          style={styles.button}
+          onPress={increment}
+          accessibilityRole="button"
+        >
           <Text style={styles.buttonText}>Increment</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={decrement}>
+        </Pressable>
+        <Pressable
+          style={styles.button}
+          onPress={decrement}
+          accessibilityRole="button"
+        >
           <Text style={styles.buttonText}>Decrement</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
       <Text style={styles.counterDisplay}>Current Count: {count}</Text>
     </View>
