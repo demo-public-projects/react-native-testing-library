@@ -10,7 +10,7 @@ import {
 
 export default function App() {
   const [count, setCount] = useState(0);
-  const [inputValue, setInputValue] = useState("1"); 
+  const [inputValue, setInputValue] = useState("1");
 
   const handleInputChange = (text) => {
     setInputValue(text.replace(/[^0-9]/g, ""));
@@ -21,7 +21,7 @@ export default function App() {
   };
 
   const decrement = () => {
-    setCount(count - Number(inputValue));
+    setTimeout(() => setCount(count - Number(inputValue)), 50);
   };
 
   return (
