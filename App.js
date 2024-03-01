@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
   Text,
-  TouchableOpacity,
   TextInput,
   Pressable,
 } from "react-native";
@@ -11,6 +10,11 @@ import {
 export default function App() {
   const [count, setCount] = useState(0);
   const [inputValue, setInputValue] = useState("1");
+  const [showCaption, setShowCaption] = useState(false);
+
+  useEffect(()=> {
+    setTimeout(() => setShowCaption(true), 1500);
+  }, [])
 
   const handleInputChange = (text) => {
     setInputValue(text.replace(/[^0-9]/g, ""));
@@ -26,7 +30,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.counterText}>Counter Value:</Text>
+      {showCaption && <Text style={styles.counterText}>Counter Value:</Text>}
       <TextInput
         style={styles.input}
         keyboardType="numeric"
